@@ -3,7 +3,7 @@
 export default {
     data() { //Disponibilizando dados
         return {
-            totalIngredientes: ['Alho', 'Manteiga', 'Oregano']
+            totalIngredientes: []
         }
     }
 }
@@ -12,13 +12,17 @@ export default {
 <template>
     <main class="conteudo-principal">
         <section>
-            <span class="subtitulo-lg sua-lista-texto">Sua lista:</span>
-            <ul class="ingredientes-sua-lista">
+            <span class="subtitulo-lg sua-lista-texto">Sua lista:</span> <!-- Verificando confições para exibição= v-if-->
+            <ul v-if="totalIngredientes.length" class="ingredientes-sua-lista">
                 <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
                 <li v-for="ingrediente in totalIngredientes" :key="ingrediente" class="ingrediente">
                     {{ ingrediente }}
                 </li>
             </ul>
+            <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->>
+                <img src="../assets/icones/lista-vazia.svg" alt="Ícone de pesquisa">
+                Sua lista está vazia, selecione ingredientes para iniciar.
+            </p>
         </section>
     </main>
 </template>
