@@ -14,7 +14,8 @@ export default {
         <section>
             <span class="subtitulo-lg sua-lista-texto">Sua lista:</span>
             <ul class="ingredientes-sua-lista">
-                <li v-for="ingrediente in totalIngredientes " class="ingrediente">
+                <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
+                <li v-for="ingrediente in totalIngredientes" :key="ingrediente" class="ingrediente">
                     {{ ingrediente }}
                 </li>
             </ul>
