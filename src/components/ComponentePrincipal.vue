@@ -1,18 +1,23 @@
-
 <script lang="ts">
+import Banner from './Banner.vue';
+import SelecionarIngredientes from './SelecionarIngredientes.vue'
+
 export default {
     data() { //Disponibilizando dados
         return {
             totalIngredientes: []
         }
-    }
+    },
+    components: { SelecionarIngredientes, Banner }
 }
+
 </script>
 
 <template>
     <main class="conteudo-principal">
         <section>
-            <span class="subtitulo-lg sua-lista-texto">Sua lista:</span> <!-- Verificando confições para exibição= v-if-->
+            <span class="subtitulo-lg sua-lista-texto">Sua lista:</span>
+            <!-- Verificando confições para exibição= v-if-->
             <ul v-if="totalIngredientes.length" class="ingredientes-sua-lista">
                 <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
                 <li v-for="ingrediente in totalIngredientes" :key="ingrediente" class="ingrediente">
@@ -24,7 +29,9 @@ export default {
                 Sua lista está vazia, selecione ingredientes para iniciar.
             </p>
         </section>
+        <SelecionarIngredientes />
     </main>
+
 </template>
 
 <style scoped>
