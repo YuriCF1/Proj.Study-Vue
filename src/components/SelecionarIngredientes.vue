@@ -1,11 +1,19 @@
 <script lang="ts">
 import { obterCategorias } from '@/http';
+import type ICategoria from '@/interfaces/ICategoria';
 
 export default {
+    // Para saber mais sobre as hooks: https://www.alura.com.br/artigos/vuejs-ciclo-vida-componentes?_gl=1*1ufue0v*_ga*MzE4ODAyMjUyLjE3MDA3NzY3Nzg.*_ga_1EPWSW3PCS*MTcxMDYyMTM1My40NDIuMS4xNzEwNjIxNDUwLjAuMC4w*_fplc*TkUlMkJ2Nnp3NktkWW1hTGdpVTFETnZPWmsxeXJvT1RFYzZ1SUlMd3VUYiUyQmhBQ3NYZVZCaXhKaVpKUEtTbzJ2Wjk3eWxyNXlPWjRvZCUyQlE2WVdabk5rdGdrWiUyRmZRekNNYTlNTiUyQnglMkZoTzNoUjczbXlSc2EwWEV5TUd6UlppNyUyQlElM0QlM0Q.
     data() {
         return {
-            categoriasGerais: obterCategorias()
+            //Proprieadades no data são reativas por padrão
+            categoriasGerais: [] as ICategoria[]
+            // categoriasGerais: obterCategorias()
         }
+    },
+    async created() { //Executado apenas quando as propriedades de data foram definidaszz
+        // Categorias inicia vazia, e depois fço uma reatribuição
+        this.categoriasGerais = await obterCategorias()
     }
 }
 </script>
