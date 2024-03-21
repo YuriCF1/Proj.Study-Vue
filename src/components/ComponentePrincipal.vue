@@ -1,14 +1,17 @@
+<!-- CASO O COMPONENTE NÃO ESTEJA SENDO IMPORTADO AUTOMATICAMENTE: DIGIE O COMPONENT, ESC, ALT ENTER-->
+
 <script lang="ts">
 import Banner from './Banner.vue';
 import SelecionarIngredientes from './SelecionarIngredientes.vue'
+import Tag from './Tag.vue';
 
 export default {
     data() { //Disponibilizando dados
         return {
-            totalIngredientes: []
+            totalIngredientes: ['Algo', 'Cebola', 'Batata']
         }
     },
-    components: { SelecionarIngredientes, Banner }
+    components: { SelecionarIngredientes, Banner, Tag }
 }
 
 </script>
@@ -20,8 +23,8 @@ export default {
             <!-- Verificando confições para exibição= v-if-->
             <ul v-if="totalIngredientes.length" class="ingredientes-sua-lista">
                 <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
-                <li v-for="ingrediente in totalIngredientes" :key="ingrediente" class="ingrediente">
-                    {{ ingrediente }}
+                <li v-for="ingrediente in totalIngredientes" :key="ingrediente">
+                    <Tag :texto="ingrediente" />
                 </li>
             </ul>
             <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->>
@@ -61,6 +64,7 @@ export default {
     flex-wrap: wrap;
 }
 
+/*
 .ingrediente {
     display: inline-block;
     border-radius: 0.5rem;
@@ -72,6 +76,7 @@ export default {
     background: var(--coral, #F0633C);
     font-weight: 700;
 }
+*/
 
 .lista-vazia {
     display: flex;
