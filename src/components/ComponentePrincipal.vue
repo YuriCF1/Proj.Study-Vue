@@ -24,7 +24,8 @@ export default {
             <ul v-if="totalIngredientes.length" class="ingredientes-sua-lista">
                 <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
                 <li v-for="ingrediente in totalIngredientes" :key="ingrediente">
-                    <Tag :texto="ingrediente" />
+                    <!-- <Tag :texto="ingrediente" :ativa="true" /> -->
+                    <Tag :texto="ingrediente" ativa />
                 </li>
             </ul>
             <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->>
