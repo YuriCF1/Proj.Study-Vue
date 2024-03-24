@@ -2,7 +2,10 @@
 
 <script lang="ts">
 import Banner from './Banner.vue';
-import SelecionarIngredientes from './SelecionarIngredientes.vue'
+import SelecionarIngredientes from './SelecionarIngredientes.vue';
+
+//@ts-ignore
+import SuaLista from './SuaLista.vue';
 import Tag from './Tag.vue';
 
 export default {
@@ -11,35 +14,21 @@ export default {
             totalIngredientes: ['Algo', 'Cebola', 'Batata']
         }
     },
-    components: { SelecionarIngredientes, Banner, Tag }
+    components: { SelecionarIngredientes, Banner, Tag, SuaLista }
 }
 
 </script>
 
 <template>
     <main class="conteudo-principal">
-        <section>
-            <span class="subtitulo-lg sua-lista-texto">Sua lista:</span>
-            <!-- Verificando confições para exibição= v-if-->
-            <ul v-if="totalIngredientes.length" class="ingredientes-sua-lista">
-                <!-- <li v-for="ingrediente in totalIngredientes" v-bind:key="ingrediente" class="ingrediente"> -->
-                <li v-for="ingrediente in totalIngredientes" :key="ingrediente">
-                    <!-- <Tag :texto="ingrediente" :ativa="true" /> -->
-                    <Tag :texto="ingrediente" ativa />
-                </li>
-            </ul>
-            <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->>
-                <img src="../assets/icones/lista-vazia.svg" alt="Ícone de pesquisa">
-                Sua lista está vazia, selecione ingredientes para iniciar.
-            </p>
-        </section>
+        <SuaLista :totalIngredientes="totalIngredientes"/>
         <SelecionarIngredientes />
     </main>
 
 </template>
 
 <style scoped>
-.conteudo-principal {
+/* .conteudo-principal {
     padding: 6.5rem 7.5rem;
     border-radius: 3.75rem 3.75rem 0rem 0rem;
     background: var(--creme, #FFFAF3);
@@ -63,7 +52,7 @@ export default {
     justify-content: center;
     gap: 1rem 1.5rem;
     flex-wrap: wrap;
-}
+} */
 
 /*
 .ingrediente {
