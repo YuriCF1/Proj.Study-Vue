@@ -1,7 +1,9 @@
 <script lang="ts">
 import type ICategoria from '@/interfaces/ICategoria';
 import type { PropType } from 'vue';
+
 import Tag from './Tag.vue'
+import IngredienteSelecionavel from "./IngredienteSelecionavel.vue"
 
 export default {
   props: {
@@ -9,7 +11,7 @@ export default {
     // categoria: { type:  Object as PropType<ICategoria>, required: true } //Caso o TS reclamasse que talvez categoria fosse indefinida
   },
 
-  components: { Tag }
+  components: { Tag, IngredienteSelecionavel }
 }
 </script>
 <template lang="">
@@ -21,7 +23,8 @@ export default {
         </h2>
         <ul class="categoria__ingredientes">
             <li v-for="(ingrediente) in categoria.ingredientes" :key="ingrediente">
-              <Tag :texto="ingrediente" />
+              <!-- <Tag :texto="ingrediente" /> -->
+              <IngredienteSelecionavel :ingrediente="ingrediente"/>
             </li>
         </ul>
         </header>
