@@ -1,7 +1,9 @@
 <script lang="ts">
 import { obterCategorias } from '@/http';
 import type ICategoria from '@/interfaces/ICategoria';
+
 import CardCategoria from "./CardCategoria.vue";
+import BotaoPrincipal from "./BotaoPrincipal.vue"
 
 export default {
     // Para saber mais sobre as hooks: https://www.alura.com.br/artigos/vuejs-ciclo-vida-componentes?_gl=1*1ufue0v*_ga*MzE4ODAyMjUyLjE3MDA3NzY3Nzg.*_ga_1EPWSW3PCS*MTcxMDYyMTM1My40NDIuMS4xNzEwNjIxNDUwLjAuMC4w*_fplc*TkUlMkJ2Nnp3NktkWW1hTGdpVTFETnZPWmsxeXJvT1RFYzZ1SUlMd3VUYiUyQmhBQ3NYZVZCaXhKaVpKUEtTbzJ2Wjk3eWxyNXlPWjRvZCUyQlE2WVdabk5rdGdrWiUyRmZRekNNYTlNTiUyQnglMkZoTzNoUjczbXlSc2EwWEV5TUd6UlppNyUyQlElM0QlM0Q.
@@ -16,7 +18,7 @@ export default {
         // Categorias inicia vazia, e depois fço uma reatribuição
         this.categoriasGerais = await obterCategorias()
     },
-    components: { CardCategoria },
+    components: { CardCategoria, BotaoPrincipal },
     emits: ['adicionarIngredienteSelecionar', 'removerIngredienteSelecionar']
 }
 </script>
@@ -36,8 +38,10 @@ export default {
                     @remover-ingrediente-card="$emit('removerIngredienteSelecionar', $event)" />
             </li>
         </ul>
-        <p class="paragrafo dica">*Atenção, consideramos que você tem em casa: sal, pimenta e água
+        <p class="paragrafo dica">
+            *Atenção, consideramos que você tem em casa: sal, pimenta e água
         </p>
+        <BotaoPrincipal texto="Buscar receitas!" />
     </section>
 </template>
 
