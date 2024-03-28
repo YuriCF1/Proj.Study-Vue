@@ -16,7 +16,8 @@ export default {
         // Categorias inicia vazia, e depois fço uma reatribuição
         this.categoriasGerais = await obterCategorias()
     },
-    components: { CardCategoria }
+    components: { CardCategoria },
+    emits: ['adicionarIngredienteSelecionar']
 }
 </script>
 
@@ -30,7 +31,8 @@ export default {
         </p>
         <ul class="categorias">
             <li v-for="categoria in categoriasGerais" :key="categoria.nome">
-                <CardCategoria :categoria="categoria"/>
+                <CardCategoria :categoria="categoria"
+                    @adicionar-ingrediente-card="$emit('adicionarIngredienteSelecionar', $event)" />
             </li>
         </ul>
         <p class="paragrafo dica">*Atenção, consideramos que você tem em casa: sal, pimenta e água

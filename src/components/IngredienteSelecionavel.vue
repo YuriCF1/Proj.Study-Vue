@@ -11,16 +11,28 @@ export default {
         return {
             selecionado: false
         }
+    },
+    methods: {
+        aoClicar() {
+            this.selecionado = !this.selecionado
 
-    }
+            if (this.selecionado) {
+                //Dando nome ao evento e enviando o dado que o evento pode carregar
+                this.$emit('adicionarIngrediente', this.ingrediente)
+            }
+        }
+    },
+    emits: ['adicionarIngrediente'] //Boa prática para o typescript ajudar. Se eu passar um this.$emit com um nome estranho, o TS vai reclamar
 }
 </script>
 
 <template lang="">
     <!-- v-on:click="selecionado = !selecionado" -->
+    <!-- @click="selecionado = !selecionado" -->
+    <!-- Vue também aceita passar função sem parenteses -->
     <button
     class="ingrediente"
-    @click="selecionado = !selecionado"
+    @click="aoClicar()"
     :aria-pressed="selecionado"
     >
         <Tag :texto="ingrediente" :ativa="selecionado"/>

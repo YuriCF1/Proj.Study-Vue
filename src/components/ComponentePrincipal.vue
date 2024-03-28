@@ -11,18 +11,23 @@ import Tag from './Tag.vue';
 export default {
     data() { //Disponibilizando dados
         return {
-            totalIngredientes: ['Algo', 'Cebola', 'Batata']
+            totalIngredientes: [] as string[]
         }
     },
-    components: { SelecionarIngredientes, Banner, Tag, SuaLista }
+    components: { SelecionarIngredientes, Banner, Tag, SuaLista },
+    methods: {
+        adicionarIngrediente(ingredienteEvent: string) {
+            this.totalIngredientes.push(ingredienteEvent)
+        }
+    }
 }
 
 </script>
 
 <template>
     <main class="conteudo-principal">
-        <SuaLista :totalIngredientes="totalIngredientes"/>
-        <SelecionarIngredientes />
+        <SuaLista :totalIngredientes="totalIngredientes" />
+        <SelecionarIngredientes @adicionarIngredienteSelecionar="adicionarIngrediente($event)" />
     </main>
 
 </template>

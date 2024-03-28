@@ -11,7 +11,8 @@ export default {
     // categoria: { type:  Object as PropType<ICategoria>, required: true } //Caso o TS reclamasse que talvez categoria fosse indefinida
   },
 
-  components: { Tag, IngredienteSelecionavel }
+  components: { Tag, IngredienteSelecionavel },
+  emits: ["adicionarIngredienteCard"]
 }
 </script>
 <template lang="">
@@ -24,7 +25,12 @@ export default {
         <ul class="categoria__ingredientes">
             <li v-for="(ingrediente) in categoria.ingredientes" :key="ingrediente">
               <!-- <Tag :texto="ingrediente" /> -->
-              <IngredienteSelecionavel :ingrediente="ingrediente"/>
+              <!-- @  = v-on: -->
+              <!-- $event = Dado sendo enviado pelo componente filho -->
+              <IngredienteSelecionavel 
+              :ingrediente="ingrediente"
+              @adicionarIngrediente="$emit('adicionarIngredienteCard', $event)"
+              />
             </li>
         </ul>
         </header>
