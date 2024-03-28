@@ -17,12 +17,13 @@ export default {
             this.selecionado = !this.selecionado
 
             if (this.selecionado) {
-                //Dando nome ao evento e enviando o dado que o evento pode carregar
                 this.$emit('adicionarIngrediente', this.ingrediente)
+            } else {
+                this.$emit('removerIngrediente', this.ingrediente);
             }
         }
     },
-    emits: ['adicionarIngrediente'] //Boa prática para o typescript ajudar. Se eu passar um this.$emit com um nome estranho, o TS vai reclamar
+    emits: ['adicionarIngrediente', 'removerIngrediente'] //Boa prática para o typescript ajudar. Se eu passar um this.$emit com um nome estranho, o TS vai reclamar
 }
 </script>
 

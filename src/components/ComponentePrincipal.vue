@@ -17,7 +17,12 @@ export default {
     components: { SelecionarIngredientes, Banner, Tag, SuaLista },
     methods: {
         adicionarIngrediente(ingredienteEvent: string) {
-            this.totalIngredientes.push(ingredienteEvent)
+            this.totalIngredientes.push(ingredienteEvent);
+        },
+        removerIngrediente(ingredienteRemovido: string) {
+            this.totalIngredientes = this.totalIngredientes.filter(ingredient => {
+                return ingredient !== ingredienteRemovido;
+            })
         }
     }
 }
@@ -27,7 +32,8 @@ export default {
 <template>
     <main class="conteudo-principal">
         <SuaLista :totalIngredientes="totalIngredientes" />
-        <SelecionarIngredientes @adicionarIngredienteSelecionar="adicionarIngrediente($event)" />
+        <SelecionarIngredientes @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
+            @remover-ingrediente-selecionar="removerIngrediente($event)" />
     </main>
 
 </template>

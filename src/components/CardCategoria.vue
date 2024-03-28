@@ -12,7 +12,7 @@ export default {
   },
 
   components: { Tag, IngredienteSelecionavel },
-  emits: ["adicionarIngredienteCard"]
+  emits: ["adicionarIngredienteCard", 'removerIngredienteCard']
 }
 </script>
 <template lang="">
@@ -30,6 +30,7 @@ export default {
               <IngredienteSelecionavel 
               :ingrediente="ingrediente"
               @adicionarIngrediente="$emit('adicionarIngredienteCard', $event)"
+              @removerIngrediente="$emit('removerIngredienteCard', $event)"
               />
             </li>
         </ul>
