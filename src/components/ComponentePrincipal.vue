@@ -4,17 +4,23 @@
 import Banner from './Banner.vue';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 
-//@ts-ignore
 import SuaLista from './SuaLista.vue';
 import Tag from './Tag.vue';
+
+//@ts-ignore
+import MostrarReceitas from './MostrarReceitas.vue'
+
+type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas' //Definindo os opções possíveis
 
 export default {
     data() { //Disponibilizando dados
         return {
-            totalIngredientes: [] as string[]
+            totalIngredientes: [] as string[],
+
+            conteudo: 'SelecionarIngredientes' as Pagina
         }
     },
-    components: { SelecionarIngredientes, Banner, Tag, SuaLista },
+    components: { SelecionarIngredientes, Banner, Tag, SuaLista, MostrarReceitas },
     methods: {
         adicionarIngrediente(ingredienteEvent: string) {
             this.totalIngredientes.push(ingredienteEvent);
@@ -32,10 +38,12 @@ export default {
 <template>
     <main class="conteudo-principal">
         <SuaLista :totalIngredientes="totalIngredientes" />
-        <SelecionarIngredientes @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
+        <!-- <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'" -->
+        <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+            @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
             @remover-ingrediente-selecionar="removerIngrediente($event)" />
+        <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
     </main>
-
 </template>
 
 <style scoped>
