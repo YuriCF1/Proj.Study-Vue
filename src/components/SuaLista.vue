@@ -21,7 +21,7 @@ export default {
                     <Tag :texto="ingrediente" ativa />
                 </li>
             </ul>
-            <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->>
+            <p v-else class="paragrafo lista-vazia"> <!--v-else, deve ser colocado logo após um v-if-->
                 <img src="../assets/icones/lista-vazia.svg" alt="Ícone de pesquisa">
                 Sua lista está vazia, selecione ingredientes para iniciar.
             </p>
