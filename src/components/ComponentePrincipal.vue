@@ -41,7 +41,8 @@ export default {
         <!-- <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'" -->
         <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
             @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
-            @remover-ingrediente-selecionar="removerIngrediente($event)" />
+            @remover-ingrediente-selecionar="removerIngrediente($event)"
+            @buscar-receitas="conteudo = 'MostrarReceitas'" />
         <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
     </main>
 </template>
