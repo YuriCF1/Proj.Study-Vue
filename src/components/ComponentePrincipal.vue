@@ -29,6 +29,8 @@ export default {
             this.totalIngredientes = this.totalIngredientes.filter(ingredient => {
                 return ingredient !== ingredienteRemovido;
             })
+        }, navegadar(estado: Pagina) {
+            this.conteudo = estado
         }
     }
 }
@@ -39,11 +41,14 @@ export default {
     <main class="conteudo-principal">
         <SuaLista :totalIngredientes="totalIngredientes" />
         <!-- <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'" -->
-        <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
-            @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
-            @remover-ingrediente-selecionar="removerIngrediente($event)"
-            @buscar-receitas="conteudo = 'MostrarReceitas'" />
-        <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
+        <keep-alive include="SelecionarIngredientes">
+            <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+                @adicionarIngredienteSelecionar="adicionarIngrediente($event)"
+                @remover-ingrediente-selecionar="removerIngrediente($event)"
+                @buscar-receitas="conteudo = 'MostrarReceitas'" />
+            <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'"
+                @editar-receitas="navegadar('SelecionarIngredientes')" />
+        </keep-alive>
     </main>
 </template>
 
