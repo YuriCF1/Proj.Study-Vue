@@ -47,7 +47,8 @@ export default {
                 @remover-ingrediente-selecionar="removerIngrediente($event)"
                 @buscar-receitas="conteudo = 'MostrarReceitas'" />
             <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'"
-                @editar-receitas="navegadar('SelecionarIngredientes')" />
+                @editar-receitas="navegadar('SelecionarIngredientes')" 
+                :ingredientesSelecionados="totalIngredientes"/>
         </keep-alive>
     </main>
 </template>
