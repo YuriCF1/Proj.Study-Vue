@@ -33,6 +33,7 @@ Coded with Typescript, the site allows the user to select specific ingredients i
 - [ X ] List component
 - [ X ] Show recipe component
 - [ X ] Footer component
+- [   ] Add more recipes
 
 <img src="https://raw.githubusercontent.com/YuriCF1/Proj.Study-Vue/main/src/assets/example.png" alt="imagem do site">
 
