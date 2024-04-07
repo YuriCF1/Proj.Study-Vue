@@ -1,33 +1,55 @@
-# cookin-up
+# Cooking-up
 
-This template should help get you started developing with Vue 3 in Vite.
+<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
+### Deploy of the project: Done
+https://portfolio-dev-kappa-liart.vercel.app/
 
-## Recommended IDE Setup
+## About it
+A site to to learn Vue, it's states, hooks, integration with API and components.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Description
+Coded with Typescript, the site allows the user to select specific ingredients in one component, and when the user clicks a button, it searchs in an API recipes with those ingredients.
 
-## Type Support for `.vue` Imports in TS
+<div id='comeco'>
+ </div>
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Languages and Frameworks
+- HTML
+- CSS
+- Typescript
+- Vue
 
-## Customize configuration
+### Steps
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- [ X ] HTML structure
+- [ X ] CSS Style
+- [ X ] Main component
+- [ X ] Main button component
+- [ X ] Banner component
+- [ X ] Ingredients component
+- [ X ] HTPP methods
+- [ X ] Tag component
+- [ X ] Select Ingredient component
+- [ X ] List component
+- [ X ] Show recipe component
+- [ X ] Footer component
 
-## Project Setup
+<img src="https://raw.githubusercontent.com/YuriCF1/Proj.Study-Vue/main/src/assets/example.png" alt="imagem do site">
 
-```sh
-npm install
-```
+## 🤝 Colaborators
 
-### Compile and Hot-Reload for Development
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/yf19/">
+        <img src="https://github.com/YuriCF1/YuriCF1/blob/main/99689063.jpg" width="100px;" alt="Foto do Yuri Cruz no GitHub"/><br>
+        <sub>
+          <b>Yuri Cruz</b>
+        </sub>
+      </a>
+    </td>
+ 
+</table>
 
-```sh
-npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+[⬆ Go back to top](#comeco)<br>
