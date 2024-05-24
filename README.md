@@ -2,7 +2,7 @@
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 ### Deploy of the project: Done
-https://portfolio-dev-kappa-liart.vercel.app/
+https://proj-study-vue.vercel.app/
 
 ## About it
 A site to to learn Vue, it's states, hooks, integration with API and components.
